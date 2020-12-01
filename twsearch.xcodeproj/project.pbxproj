@@ -13,7 +13,21 @@
 		D5728D692573C7EF008661C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5728D682573C7EF008661C3 /* Preview Assets.xcassets */; };
 		D5728D752573D82E008661C3 /* TwitterAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D742573D82E008661C3 /* TwitterAPIClient.swift */; };
 		D5728D7A2573DBCF008661C3 /* TwitterSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D792573DBCF008661C3 /* TwitterSearchResponse.swift */; };
+		D5728D7E257663EB008661C3 /* prefs.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5728D7D257663EB008661C3 /* prefs.plist */; };
+		D5728D9125766541008661C3 /* TwitterAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D9025766541008661C3 /* TwitterAPIClientTests.swift */; };
+		D5728D96257665E9008661C3 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D95257665E9008661C3 /* Preferences.swift */; };
+		D5728DA52576729B008661C3 /* SearchStatuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DA42576729B008661C3 /* SearchStatuses.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D5728D8925766503008661C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5728D562573C7EE008661C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5728D5D2573C7EE008661C3;
+			remoteInfo = twsearch;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D5728D5E2573C7EE008661C3 /* twsearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twsearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +38,23 @@
 		D5728D6A2573C7EF008661C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5728D742573D82E008661C3 /* TwitterAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPIClient.swift; sourceTree = "<group>"; };
 		D5728D792573DBCF008661C3 /* TwitterSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterSearchResponse.swift; sourceTree = "<group>"; };
+		D5728D7D257663EB008661C3 /* prefs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = prefs.plist; sourceTree = "<group>"; };
+		D5728D8425766503008661C3 /* twsearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = twsearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5728D8825766503008661C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5728D9025766541008661C3 /* TwitterAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPIClientTests.swift; sourceTree = "<group>"; };
+		D5728D95257665E9008661C3 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		D5728DA42576729B008661C3 /* SearchStatuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStatuses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D5728D5B2573C7EE008661C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5728D8125766503008661C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				D5728D602573C7EE008661C3 /* twsearch */,
+				D5728D8525766503008661C3 /* twsearchTests */,
 				D5728D5F2573C7EE008661C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				D5728D5E2573C7EE008661C3 /* twsearch.app */,
+				D5728D8425766503008661C3 /* twsearchTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,11 +85,13 @@
 		D5728D602573C7EE008661C3 /* twsearch */ = {
 			isa = PBXGroup;
 			children = (
+				D5728D94257665E1008661C3 /* utils */,
 				D5728D722573D7EA008661C3 /* infra */,
 				D5728D612573C7EE008661C3 /* twsearchApp.swift */,
 				D5728D632573C7EE008661C3 /* ContentView.swift */,
 				D5728D652573C7EF008661C3 /* Assets.xcassets */,
 				D5728D6A2573C7EF008661C3 /* Info.plist */,
+				D5728D7D257663EB008661C3 /* prefs.plist */,
 				D5728D672573C7EF008661C3 /* Preview Content */,
 			);
 			path = twsearch;
@@ -85,6 +116,7 @@
 		D5728D732573D808008661C3 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
+				D5728DA32576728C008661C3 /* endpoints */,
 				D5728D782573DBC2008661C3 /* entities */,
 				D5728D742573D82E008661C3 /* TwitterAPIClient.swift */,
 			);
@@ -97,6 +129,31 @@
 				D5728D792573DBCF008661C3 /* TwitterSearchResponse.swift */,
 			);
 			path = entities;
+			sourceTree = "<group>";
+		};
+		D5728D8525766503008661C3 /* twsearchTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5728D8825766503008661C3 /* Info.plist */,
+				D5728D9025766541008661C3 /* TwitterAPIClientTests.swift */,
+			);
+			path = twsearchTests;
+			sourceTree = "<group>";
+		};
+		D5728D94257665E1008661C3 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D5728D95257665E9008661C3 /* Preferences.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		D5728DA32576728C008661C3 /* endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				D5728DA42576729B008661C3 /* SearchStatuses.swift */,
+			);
+			path = endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +176,24 @@
 			productReference = D5728D5E2573C7EE008661C3 /* twsearch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D5728D8325766503008661C3 /* twsearchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5728D8B25766503008661C3 /* Build configuration list for PBXNativeTarget "twsearchTests" */;
+			buildPhases = (
+				D5728D8025766503008661C3 /* Sources */,
+				D5728D8125766503008661C3 /* Frameworks */,
+				D5728D8225766503008661C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5728D8A25766503008661C3 /* PBXTargetDependency */,
+			);
+			name = twsearchTests;
+			productName = twsearchTests;
+			productReference = D5728D8425766503008661C3 /* twsearchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -130,6 +205,10 @@
 				TargetAttributes = {
 					D5728D5D2573C7EE008661C3 = {
 						CreatedOnToolsVersion = 12.1;
+					};
+					D5728D8325766503008661C3 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = D5728D5D2573C7EE008661C3;
 					};
 				};
 			};
@@ -147,6 +226,7 @@
 			projectRoot = "";
 			targets = (
 				D5728D5D2573C7EE008661C3 /* twsearch */,
+				D5728D8325766503008661C3 /* twsearchTests */,
 			);
 		};
 /* End PBXProject section */
@@ -157,7 +237,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5728D692573C7EF008661C3 /* Preview Assets.xcassets in Resources */,
+				D5728D7E257663EB008661C3 /* prefs.plist in Resources */,
 				D5728D662573C7EF008661C3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5728D8225766503008661C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,13 +257,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5728D642573C7EE008661C3 /* ContentView.swift in Sources */,
+				D5728DA52576729B008661C3 /* SearchStatuses.swift in Sources */,
 				D5728D622573C7EE008661C3 /* twsearchApp.swift in Sources */,
+				D5728D96257665E9008661C3 /* Preferences.swift in Sources */,
 				D5728D7A2573DBCF008661C3 /* TwitterSearchResponse.swift in Sources */,
 				D5728D752573D82E008661C3 /* TwitterAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D5728D8025766503008661C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5728D9125766541008661C3 /* TwitterAPIClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D5728D8A25766503008661C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5728D5D2573C7EE008661C3 /* twsearch */;
+			targetProxy = D5728D8925766503008661C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		D5728D6B2573C7EF008661C3 /* Debug */ = {
@@ -338,6 +444,46 @@
 			};
 			name = Release;
 		};
+		D5728D8C25766503008661C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Q34H7H8F9;
+				INFOPLIST_FILE = twsearchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hrfmmr.swift-combine-sandbox.twsearchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/twsearch.app/twsearch";
+			};
+			name = Debug;
+		};
+		D5728D8D25766503008661C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8Q34H7H8F9;
+				INFOPLIST_FILE = twsearchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hrfmmr.swift-combine-sandbox.twsearchTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/twsearch.app/twsearch";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -355,6 +501,15 @@
 			buildConfigurations = (
 				D5728D6E2573C7EF008661C3 /* Debug */,
 				D5728D6F2573C7EF008661C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5728D8B25766503008661C3 /* Build configuration list for PBXNativeTarget "twsearchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5728D8C25766503008661C3 /* Debug */,
+				D5728D8D25766503008661C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

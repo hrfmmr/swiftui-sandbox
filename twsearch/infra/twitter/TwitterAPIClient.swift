@@ -14,22 +14,30 @@ enum TwitterAPIError: Error {
     case parsing(description: String)
 }
 
-final class TwitterAPIClient {
-    static let shared = TwitterAPIClient()
+protocol TwitterAPITargetType {
+    associatedtype Response: Decodable
+    func makeRequest() -> URLRequest
+}
+
+enum TwitterAPI {
     static let baseURL = "https://api.twitter.com/1.1"
     static let defaultHeaders = [
-        "Authorization": "Bearer xxx"
+        "Authorization": "Bearer \(Preferences.twitterOAuthToken)"
     ]
+    static func makeRequest(for url: URL) -> URLRequest {
+        var req = URLRequest(url: url)
+        for (k, v) in defaultHeaders {
+            req.setValue(v, forHTTPHeaderField: k)
+        }
+        return req
+    }
+}
+
+final class TwitterAPIClient {
+    static let shared = TwitterAPIClient()
     
-    static func search(withQuery q: String) -> AnyPublisher<TwitterSearchResponse, TwitterAPIError> {
-        let path = "/search/tweets.json"
-        var urlcomponents = URLComponents(string: "\(baseURL)\(path)")!
-        urlcomponents.queryItems = [
-            URLQueryItem(name: "q", value: q)
-        ]
-        let url = urlcomponents.url!
-        let req = URLRequest(url: url)
-        return request(req)
+    func request<T>(_ apiTarget: T) -> AnyPublisher<T.Response, TwitterAPIError> where T: TwitterAPITargetType {
+        TwitterAPIClient.request(apiTarget.makeRequest())
     }
 }
 
