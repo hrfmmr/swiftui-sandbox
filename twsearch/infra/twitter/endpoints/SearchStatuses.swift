@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 extension TwitterAPI {
     struct SearchStatuses: TwitterAPITargetType {
@@ -24,5 +25,14 @@ extension TwitterAPI {
             ]
             return TwitterAPI.makeRequest(for: urlcomponents.url!)
         }
+    }
+}
+
+extension TwitterAPIClient: StatusRepository {
+    func search(withQuery q: String) -> AnyPublisher<SearchResult, StatusRepositoryError> {
+        self.request(TwitterAPI.SearchStatuses(withQuery: q))
+            .mapError(StatusRepositoryError.fromCommonNetworkRequestError(error:))
+            .map { $0.toSearchResult() }
+            .eraseToAnyPublisher()
     }
 }

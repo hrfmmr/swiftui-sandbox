@@ -8,12 +8,6 @@
 import Foundation
 import Combine
 
-enum TwitterAPIError: Error {
-    case network(description: String)
-    case statusCode(HTTPURLResponse)
-    case parsing(description: String)
-}
-
 protocol TwitterAPITargetType {
     associatedtype Response: Decodable
     func makeRequest() -> URLRequest
@@ -36,27 +30,27 @@ enum TwitterAPI {
 final class TwitterAPIClient {
     static let shared = TwitterAPIClient()
     
-    func request<T>(_ apiTarget: T) -> AnyPublisher<T.Response, TwitterAPIError> where T: TwitterAPITargetType {
+    func request<T>(_ apiTarget: T) -> AnyPublisher<T.Response, CommonNetworkRequestError> where T: TwitterAPITargetType {
         TwitterAPIClient.request(apiTarget.makeRequest())
     }
 }
 
 private extension TwitterAPIClient {
-    static func decode<T>(data: Data) -> AnyPublisher<T, TwitterAPIError> where T: Decodable {
+    static func decode<T>(data: Data) -> AnyPublisher<T, CommonNetworkRequestError> where T: Decodable {
         return Just(data)
             .decode(type: T.self, decoder: JSONDecoder())
-            .mapError { error -> TwitterAPIError in
+            .mapError { error -> CommonNetworkRequestError in
                 return .parsing(description: error.localizedDescription)
             }
             .eraseToAnyPublisher()
     }
     
-    static func request<T>(_ req: URLRequest) -> AnyPublisher<T, TwitterAPIError> where T: Decodable {
+    static func request<T>(_ req: URLRequest) -> AnyPublisher<T, CommonNetworkRequestError> where T: Decodable {
         return URLSession.shared.dataTaskPublisher(for: req)
-            .mapError { error -> TwitterAPIError in
+            .mapError { error -> CommonNetworkRequestError in
                 return .network(description: error.localizedDescription)
             }
-            .flatMap(maxPublishers: .max(1)) { data, response -> AnyPublisher<T, TwitterAPIError> in
+            .flatMap(maxPublishers: .max(1)) { data, response -> AnyPublisher<T, CommonNetworkRequestError> in
                 if let response = response as? HTTPURLResponse,
                    !(200..<300).contains(response.statusCode) {
                     return Fail(error: .statusCode(response)).eraseToAnyPublisher()

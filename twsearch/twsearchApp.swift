@@ -11,7 +11,14 @@ import SwiftUI
 struct twsearchApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SearchStatusesView(
+                viewModel: SearchStatusesViewModel(
+                    dependency: (
+                        TwitterAPIClient.shared,
+                        DispatchQueue.init(label: "SearchStatusesViewModel")
+                    )
+                )
+            )
         }
     }
 }

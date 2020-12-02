@@ -25,11 +25,35 @@ extension TwitterSearchResponse: Decodable {
     }
 }
 
+extension TwitterSearchResponse {
+    func toSearchResult() -> SearchResult {
+        var nextParams: SearchNextParams?
+        if let nextResults = self.metadata.nextResults {
+            nextParams = queryStringToDict(nextResults)
+        }
+        return SearchResult(
+            statuses: self.statuses.map({ s -> Status in
+                Status(
+                    id: s.id,
+                    text: s.text,
+                    userID: s.user.id,
+                    userName: s.user.name,
+                    userScreenName: s.user.screenName,
+                    userProfileImageURL: URL(string: s.user.profileImageURL)
+                )
+            }),
+            nextParams: nextParams
+        )
+    }
+}
+
 public struct TwitterStatus {
+    public let id: Int
     public let text: String
     public let user: TwitterUser
     
     private enum CodingKeys: String, CodingKey {
+        case id = "id"
         case text = "text"
         case user = "user"
     }
@@ -38,6 +62,7 @@ public struct TwitterStatus {
 extension TwitterStatus: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
         self.text = try container.decode(String.self, forKey: .text)
         self.user = try container.decode(TwitterUser.self, forKey: .user)
     }

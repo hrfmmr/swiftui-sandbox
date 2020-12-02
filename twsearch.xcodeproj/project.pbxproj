@@ -17,6 +17,15 @@
 		D5728D9125766541008661C3 /* TwitterAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D9025766541008661C3 /* TwitterAPIClientTests.swift */; };
 		D5728D96257665E9008661C3 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D95257665E9008661C3 /* Preferences.swift */; };
 		D5728DA52576729B008661C3 /* SearchStatuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DA42576729B008661C3 /* SearchStatuses.swift */; };
+		D5728DB22576E6AC008661C3 /* SearchStatusesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DB12576E6AC008661C3 /* SearchStatusesView.swift */; };
+		D5728DB72576E783008661C3 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DB62576E783008661C3 /* SearchResult.swift */; };
+		D5728DBD2576E79A008661C3 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DBC2576E79A008661C3 /* Status.swift */; };
+		D5728DC32576E837008661C3 /* StatusRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DC22576E837008661C3 /* StatusRepository.swift */; };
+		D5728DC92576E972008661C3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DC82576E972008661C3 /* Errors.swift */; };
+		D5728DCD2576EB16008661C3 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728DCC2576EB16008661C3 /* utils.swift */; };
+		D5728E742577BE3B008661C3 /* SearchStatusesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E732577BE3B008661C3 /* SearchStatusesViewModel.swift */; };
+		D5728E782577BE58008661C3 /* StatusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E772577BE58008661C3 /* StatusRow.swift */; };
+		D5728E7C2577BE72008661C3 /* StatusRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,15 @@
 		D5728D9025766541008661C3 /* TwitterAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPIClientTests.swift; sourceTree = "<group>"; };
 		D5728D95257665E9008661C3 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		D5728DA42576729B008661C3 /* SearchStatuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStatuses.swift; sourceTree = "<group>"; };
+		D5728DB12576E6AC008661C3 /* SearchStatusesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStatusesView.swift; sourceTree = "<group>"; };
+		D5728DB62576E783008661C3 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		D5728DBC2576E79A008661C3 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		D5728DC22576E837008661C3 /* StatusRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRepository.swift; sourceTree = "<group>"; };
+		D5728DC82576E972008661C3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D5728DCC2576EB16008661C3 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		D5728E732577BE3B008661C3 /* SearchStatusesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStatusesViewModel.swift; sourceTree = "<group>"; };
+		D5728E772577BE58008661C3 /* StatusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRow.swift; sourceTree = "<group>"; };
+		D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,10 +103,11 @@
 		D5728D602573C7EE008661C3 /* twsearch */ = {
 			isa = PBXGroup;
 			children = (
-				D5728D94257665E1008661C3 /* utils */,
-				D5728D722573D7EA008661C3 /* infra */,
 				D5728D612573C7EE008661C3 /* twsearchApp.swift */,
-				D5728D632573C7EE008661C3 /* ContentView.swift */,
+				D5728DB52576E72C008661C3 /* domain */,
+				D5728DAE2576E5BB008661C3 /* ui */,
+				D5728D722573D7EA008661C3 /* infra */,
+				D5728D94257665E1008661C3 /* utils */,
 				D5728D652573C7EF008661C3 /* Assets.xcassets */,
 				D5728D6A2573C7EF008661C3 /* Info.plist */,
 				D5728D7D257663EB008661C3 /* prefs.plist */,
@@ -144,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				D5728D95257665E9008661C3 /* Preferences.swift */,
+				D5728DCC2576EB16008661C3 /* utils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -154,6 +174,53 @@
 				D5728DA42576729B008661C3 /* SearchStatuses.swift */,
 			);
 			path = endpoints;
+			sourceTree = "<group>";
+		};
+		D5728DAE2576E5BB008661C3 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				D5728E702577BD96008661C3 /* search */,
+				D5728D632573C7EE008661C3 /* ContentView.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
+		D5728DB52576E72C008661C3 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				D5728DC02576E7D1008661C3 /* models */,
+				D5728DC12576E7E2008661C3 /* repository */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		D5728DC02576E7D1008661C3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				D5728DB62576E783008661C3 /* SearchResult.swift */,
+				D5728DBC2576E79A008661C3 /* Status.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		D5728DC12576E7E2008661C3 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				D5728DC22576E837008661C3 /* StatusRepository.swift */,
+				D5728DC82576E972008661C3 /* Errors.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		D5728E702577BD96008661C3 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				D5728DB12576E6AC008661C3 /* SearchStatusesView.swift */,
+				D5728E732577BE3B008661C3 /* SearchStatusesViewModel.swift */,
+				D5728E772577BE58008661C3 /* StatusRow.swift */,
+				D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,10 +325,19 @@
 			files = (
 				D5728D642573C7EE008661C3 /* ContentView.swift in Sources */,
 				D5728DA52576729B008661C3 /* SearchStatuses.swift in Sources */,
+				D5728DB72576E783008661C3 /* SearchResult.swift in Sources */,
+				D5728E742577BE3B008661C3 /* SearchStatusesViewModel.swift in Sources */,
+				D5728DCD2576EB16008661C3 /* utils.swift in Sources */,
+				D5728DB22576E6AC008661C3 /* SearchStatusesView.swift in Sources */,
+				D5728E782577BE58008661C3 /* StatusRow.swift in Sources */,
 				D5728D622573C7EE008661C3 /* twsearchApp.swift in Sources */,
+				D5728DBD2576E79A008661C3 /* Status.swift in Sources */,
 				D5728D96257665E9008661C3 /* Preferences.swift in Sources */,
+				D5728DC92576E972008661C3 /* Errors.swift in Sources */,
 				D5728D7A2573DBCF008661C3 /* TwitterSearchResponse.swift in Sources */,
 				D5728D752573D82E008661C3 /* TwitterAPIClient.swift in Sources */,
+				D5728DC32576E837008661C3 /* StatusRepository.swift in Sources */,
+				D5728E7C2577BE72008661C3 /* StatusRowViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
