@@ -16,11 +16,14 @@ struct StatusRow: View {
     
     var body: some View {
         HStack(alignment: .top) {
-            Image(uiImage: UIImage())
-                .resizable()
-                .frame(width: 40, height: 40)
-                .clipShape(Circle())
-                .background(Color.blue)
+            switch viewModel.userProfileImageURL {
+            case .none:
+                Image(systemName: "person")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+            case let .some(url):
+                RemoteImageView(remoteImage: RemoteImage(for: url))
+            }
             VStack(alignment: .leading) {
                 HStack {
                     Text(viewModel.userName)

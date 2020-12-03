@@ -16,12 +16,16 @@ struct SearchStatusesView: View {
     }
 
     var body: some View {
-        List {
+        VStack {
             searchTextField
             if viewModel.dataSource.isEmpty {
+                Spacer()
                 emptySection
+                Spacer()
             } else {
-                statusesSection
+                List {
+                    statusesSection
+                }
             }
         }
     }
@@ -29,14 +33,34 @@ struct SearchStatusesView: View {
 
 private extension SearchStatusesView {
     var searchTextField: some View {
-        TextField("e.g. Covid-19", text: $viewModel.query)
+        TextField("Search", text: $viewModel.query)
+            .padding(7)
+            .padding(.horizontal, 25)
+            .background(Color(.systemGray6))
+            .cornerRadius(6)
+            .padding(.horizontal, 10)
+            .overlay(
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 20)
+                    if viewModel.isEditing {
+                        Button(action: {
+                            viewModel.clearSearchText()
+                        }) {
+                            Image(systemName: "multiply.circle.fill")
+                                .foregroundColor(.gray)
+                                .padding(.trailing, 15)
+                        }
+                    }
+                }
+            )
     }
     
     var emptySection: some View {
-        Section {
-            Text("No Results")
-                .foregroundColor(.gray)
-        }
+        Text("No Results")
+            .foregroundColor(.gray)
     }
     
     var statusesSection: some View {

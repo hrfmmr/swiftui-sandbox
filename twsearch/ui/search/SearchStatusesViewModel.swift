@@ -14,6 +14,7 @@ class SearchStatusesViewModel: ObservableObject {
         scheduler: DispatchQueue
     )
     @Published var query = ""
+    @Published var isEditing = false
     @Published var dataSource: [StatusRowViewModel] = []
     private let statusRepository: StatusRepository
     private var disposables = Set<AnyCancellable>()
@@ -26,6 +27,15 @@ class SearchStatusesViewModel: ObservableObject {
             .debounce(for: .seconds(0.5), scheduler: dependency.scheduler)
             .sink(receiveValue: searchStatuses(withQuery:))
             .store(in: &disposables)
+        
+        $query
+            .map { !$0.isEmpty }
+            .assign(to: \.isEditing, on: self)
+            .store(in: &disposables)
+    }
+    
+    func clearSearchText() {
+        query = ""
     }
     
     func searchStatuses(withQuery q: String) {

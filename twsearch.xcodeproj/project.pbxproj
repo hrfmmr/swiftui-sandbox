@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D520F0F32578FAA9009438AE /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D520F0F22578FAA9009438AE /* RemoteImageView.swift */; };
 		D5728D622573C7EE008661C3 /* twsearchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D612573C7EE008661C3 /* twsearchApp.swift */; };
 		D5728D642573C7EE008661C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728D632573C7EE008661C3 /* ContentView.swift */; };
 		D5728D662573C7EF008661C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5728D652573C7EF008661C3 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		D5728E742577BE3B008661C3 /* SearchStatusesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E732577BE3B008661C3 /* SearchStatusesViewModel.swift */; };
 		D5728E782577BE58008661C3 /* StatusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E772577BE58008661C3 /* StatusRow.swift */; };
 		D5728E7C2577BE72008661C3 /* StatusRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */; };
+		D5728E8125783CE2008661C3 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E8025783CE2008661C3 /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D520F0F22578FAA9009438AE /* RemoteImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		D5728D5E2573C7EE008661C3 /* twsearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twsearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5728D612573C7EE008661C3 /* twsearchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twsearchApp.swift; sourceTree = "<group>"; };
 		D5728D632573C7EE008661C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		D5728E732577BE3B008661C3 /* SearchStatusesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStatusesViewModel.swift; sourceTree = "<group>"; };
 		D5728E772577BE58008661C3 /* StatusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRow.swift; sourceTree = "<group>"; };
 		D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRowViewModel.swift; sourceTree = "<group>"; };
+		D5728E8025783CE2008661C3 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 		D5728DAE2576E5BB008661C3 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				D5728E7F25783CB9008661C3 /* common */,
 				D5728E702577BD96008661C3 /* search */,
 				D5728D632573C7EE008661C3 /* ContentView.swift */,
 			);
@@ -221,6 +226,15 @@
 				D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */,
 			);
 			path = search;
+			sourceTree = "<group>";
+		};
+		D5728E7F25783CB9008661C3 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				D5728E8025783CE2008661C3 /* RemoteImage.swift */,
+				D520F0F22578FAA9009438AE /* RemoteImageView.swift */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5728D642573C7EE008661C3 /* ContentView.swift in Sources */,
+				D520F0F32578FAA9009438AE /* RemoteImageView.swift in Sources */,
 				D5728DA52576729B008661C3 /* SearchStatuses.swift in Sources */,
 				D5728DB72576E783008661C3 /* SearchResult.swift in Sources */,
 				D5728E742577BE3B008661C3 /* SearchStatusesViewModel.swift in Sources */,
@@ -334,6 +349,7 @@
 				D5728DBD2576E79A008661C3 /* Status.swift in Sources */,
 				D5728D96257665E9008661C3 /* Preferences.swift in Sources */,
 				D5728DC92576E972008661C3 /* Errors.swift in Sources */,
+				D5728E8125783CE2008661C3 /* RemoteImage.swift in Sources */,
 				D5728D7A2573DBCF008661C3 /* TwitterSearchResponse.swift in Sources */,
 				D5728D752573D82E008661C3 /* TwitterAPIClient.swift in Sources */,
 				D5728DC32576E837008661C3 /* StatusRepository.swift in Sources */,
