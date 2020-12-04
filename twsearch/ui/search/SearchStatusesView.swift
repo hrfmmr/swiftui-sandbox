@@ -19,8 +19,8 @@ struct SearchStatusesView: View {
         VStack {
             searchTextField
             if viewModel.shouldShowLoading {
-                Spacer()
-                Text("Loading...")
+                ActivityIndicator(animating: .constant(true))
+                    .padding(.top, 8)
                 Spacer()
             } else if viewModel.dataSource.isEmpty {
                 Spacer()

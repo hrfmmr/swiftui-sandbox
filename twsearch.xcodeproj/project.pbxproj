@@ -30,6 +30,7 @@
 		D5728E8125783CE2008661C3 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E8025783CE2008661C3 /* RemoteImage.swift */; };
 		D5F0D60325798BD700656E32 /* StatusIconImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F0D60225798BD700656E32 /* StatusIconImageModifier.swift */; };
 		D5F0D64F257A524900656E32 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F0D64E257A524900656E32 /* ImageModifier.swift */; };
+		D5F0D653257A5C5700656E32 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F0D652257A5C5700656E32 /* ActivityIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		D5728E8025783CE2008661C3 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		D5F0D60225798BD700656E32 /* StatusIconImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusIconImageModifier.swift; sourceTree = "<group>"; };
 		D5F0D64E257A524900656E32 /* ImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifier.swift; sourceTree = "<group>"; };
+		D5F0D652257A5C5700656E32 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 				D5F0D60125798BAA00656E32 /* modifiers */,
 				D5728E8025783CE2008661C3 /* RemoteImage.swift */,
 				D520F0F22578FAA9009438AE /* RemoteImageView.swift */,
+				D5F0D652257A5C5700656E32 /* ActivityIndicator.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				D5728E8125783CE2008661C3 /* RemoteImage.swift in Sources */,
 				D5728D7A2573DBCF008661C3 /* TwitterSearchResponse.swift in Sources */,
 				D5F0D60325798BD700656E32 /* StatusIconImageModifier.swift in Sources */,
+				D5F0D653257A5C5700656E32 /* ActivityIndicator.swift in Sources */,
 				D5728D752573D82E008661C3 /* TwitterAPIClient.swift in Sources */,
 				D5728DC32576E837008661C3 /* StatusRepository.swift in Sources */,
 				D5728E7C2577BE72008661C3 /* StatusRowViewModel.swift in Sources */,
