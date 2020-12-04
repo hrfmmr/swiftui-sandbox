@@ -22,7 +22,10 @@ struct StatusRow: View {
                     .resizable()
                     .frame(width: 40, height: 40)
             case let .some(url):
-                RemoteImageView(remoteImage: RemoteImage(for: url))
+                RemoteImageView(
+                    remoteImage: RemoteImage(for: url),
+                    imageModifier: StatusIconImageModifier()
+                )
             }
             VStack(alignment: .leading) {
                 HStack {

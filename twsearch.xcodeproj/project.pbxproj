@@ -28,6 +28,8 @@
 		D5728E782577BE58008661C3 /* StatusRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E772577BE58008661C3 /* StatusRow.swift */; };
 		D5728E7C2577BE72008661C3 /* StatusRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */; };
 		D5728E8125783CE2008661C3 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5728E8025783CE2008661C3 /* RemoteImage.swift */; };
+		D5F0D60325798BD700656E32 /* StatusIconImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F0D60225798BD700656E32 /* StatusIconImageModifier.swift */; };
+		D5F0D64F257A524900656E32 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F0D64E257A524900656E32 /* ImageModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		D5728E772577BE58008661C3 /* StatusRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRow.swift; sourceTree = "<group>"; };
 		D5728E7B2577BE72008661C3 /* StatusRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusRowViewModel.swift; sourceTree = "<group>"; };
 		D5728E8025783CE2008661C3 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		D5F0D60225798BD700656E32 /* StatusIconImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusIconImageModifier.swift; sourceTree = "<group>"; };
+		D5F0D64E257A524900656E32 /* ImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,10 +235,20 @@
 		D5728E7F25783CB9008661C3 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				D5F0D60125798BAA00656E32 /* modifiers */,
 				D5728E8025783CE2008661C3 /* RemoteImage.swift */,
 				D520F0F22578FAA9009438AE /* RemoteImageView.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		D5F0D60125798BAA00656E32 /* modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D5F0D60225798BD700656E32 /* StatusIconImageModifier.swift */,
+				D5F0D64E257A524900656E32 /* ImageModifier.swift */,
+			);
+			path = modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5F0D64F257A524900656E32 /* ImageModifier.swift in Sources */,
 				D5728D642573C7EE008661C3 /* ContentView.swift in Sources */,
 				D520F0F32578FAA9009438AE /* RemoteImageView.swift in Sources */,
 				D5728DA52576729B008661C3 /* SearchStatuses.swift in Sources */,
@@ -351,6 +366,7 @@
 				D5728DC92576E972008661C3 /* Errors.swift in Sources */,
 				D5728E8125783CE2008661C3 /* RemoteImage.swift in Sources */,
 				D5728D7A2573DBCF008661C3 /* TwitterSearchResponse.swift in Sources */,
+				D5F0D60325798BD700656E32 /* StatusIconImageModifier.swift in Sources */,
 				D5728D752573D82E008661C3 /* TwitterAPIClient.swift in Sources */,
 				D5728DC32576E837008661C3 /* StatusRepository.swift in Sources */,
 				D5728E7C2577BE72008661C3 /* StatusRowViewModel.swift in Sources */,

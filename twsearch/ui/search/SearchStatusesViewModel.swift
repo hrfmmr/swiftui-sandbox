@@ -13,7 +13,7 @@ class SearchStatusesViewModel: ObservableObject {
         statusRepository: StatusRepository,
         scheduler: DispatchQueue
     )
-    @Published var query = ""
+    @Published var query = "twitter"
     @Published var isEditing = false
     @Published var dataSource: [StatusRowViewModel] = []
     private let statusRepository: StatusRepository
