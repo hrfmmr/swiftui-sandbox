@@ -34,3 +34,10 @@ struct StatusRowViewModel: Identifiable {
         self.status = status
     }
 }
+
+extension StatusRowViewModel: Equatable {
+    static func == (lhs: StatusRowViewModel, rhs: StatusRowViewModel) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+

@@ -16,7 +16,9 @@ class SearchStatusesViewModel: ObservableObject {
     @Published var query = ""
     @Published var isEditing = false
     @Published var shouldShowLoading = false
+    @Published var shouldShowLoadingNext = false
     @Published var dataSource: [StatusRowViewModel] = []
+    private var nextParams: [String: String]?
     private let statusRepository: StatusRepository
     private var disposables = Set<AnyCancellable>()
     
@@ -47,8 +49,9 @@ class SearchStatusesViewModel: ObservableObject {
     }
     
     func searchStatuses(withQuery q: String) {
-        statusRepository.search(withQuery: q)
-            .map { $0.statuses.map(StatusRowViewModel.init) }
+        let searchRequest = statusRepository.search(withQuery: q)
+            
+        searchRequest
             .receive(on: RunLoop.main)
             .sink { [weak self] completion in
                 guard  let self = self else { return }
@@ -60,10 +63,42 @@ class SearchStatusesViewModel: ObservableObject {
                 case .finished:
                     break
                 }
-            } receiveValue: { [weak self] dataSource in
+            } receiveValue: { [weak self] searchResult in
                 guard  let self = self else { return }
-                self.dataSource = dataSource
+                self.dataSource = searchResult.statuses.map(StatusRowViewModel.init)
+                self.nextParams = searchResult.nextParams
             }
             .store(in: &disposables)
+    }
+    
+    func fetchNextStatuses() {
+        guard let nextParams = nextParams else { return }
+        shouldShowLoadingNext = true
+        let fetchNextRequest = statusRepository.fetchNext(withParams: nextParams)
+        fetchNextRequest
+            .receive(on: RunLoop.main)
+            .sink { [weak self] completion in
+                guard let self = self else { return }
+                self.shouldShowLoadingNext = false
+                switch completion {
+                case let .failure(error):
+                    print(error.localizedDescription)
+                case .finished:
+                    break
+                }
+            } receiveValue: { [weak self] searchResult in
+                guard  let self = self else { return }
+                self.dataSource.append(contentsOf: searchResult.statuses.map(StatusRowViewModel.init))
+                self.nextParams = searchResult.nextParams
+            }
+            .store(in: &disposables)
+    }
+    
+    func onAppearElement(_ statusModel: StatusRowViewModel) {
+        guard
+            let lastElement = dataSource.last,
+            statusModel == lastElement
+        else { return }
+        fetchNextStatuses()
     }
 }

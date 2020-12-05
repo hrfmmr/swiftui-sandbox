@@ -18,4 +18,5 @@ enum StatusRepositoryError: Error {
 
 protocol StatusRepository {
     func search(withQuery q: String) -> AnyPublisher<SearchResult, StatusRepositoryError>
+    func fetchNext(withParams params: [String: String]) -> AnyPublisher<SearchResult, StatusRepositoryError>
 }

@@ -16,7 +16,9 @@ class TwitterAPIClientIntegrationTests: XCTestCase {
     
     func testSearchStatuses() {
         let exp = expectation(description: "search_statuses")
-        api.request(TwitterAPI.SearchStatuses(withQuery: "github"))
+        exp.expectedFulfillmentCount = 2
+        api.search(withQuery: "github")
+            .print()
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -24,11 +26,33 @@ class TwitterAPIClientIntegrationTests: XCTestCase {
                 case let .failure(error):
                     fatalError(error.localizedDescription)
                 }
-            } receiveValue: { response in
-                print("============= search result =================")
-                print(response)
+            } receiveValue: { searchResult in
+                print("=============================================================")
+                print("first search result")
+                print("=============================================================")
+                print(searchResult)
+                if let nextParams = searchResult.nextParams {
+                    self.api.fetchNext(withParams: nextParams)
+                        .sink {  completion in
+                            switch completion {
+                            case .finished:
+                                exp.fulfill()
+                            case let .failure(error):
+                                fatalError(error.localizedDescription)
+                            }
+                        } receiveValue: { searchResult in
+                            print("=============================================================")
+                            print("next page's search result")
+                            print("=============================================================")
+                            print(searchResult)
+                        }
+                        .store(in: &self.disposables)
+                } else {
+                    exp.fulfill()
+                }
             }
             .store(in: &disposables)
+
         wait(for: [exp], timeout: 5.0)
     }
 }

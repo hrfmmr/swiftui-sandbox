@@ -27,9 +27,7 @@ struct SearchStatusesView: View {
                 emptySection
                 Spacer()
             } else {
-                List {
-                    statusesSection
-                }
+                statusesSection
             }
         }
     }
@@ -68,7 +66,17 @@ private extension SearchStatusesView {
     }
     
     var statusesSection: some View {
-        ForEach(viewModel.dataSource, content: StatusRow.init(viewModel:))
+        Group {
+            List(viewModel.dataSource) { model in
+                StatusRow(viewModel: model)
+                    .onAppear {
+                        viewModel.onAppearElement(model)
+                    }
+            }
+            if viewModel.shouldShowLoadingNext {
+                ActivityIndicator(animating: .constant(true))
+            }
+        }
     }
 }
 
