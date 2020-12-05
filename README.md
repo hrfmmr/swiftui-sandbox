@@ -1,4 +1,4 @@
-# swift-combine-sandbox
+Example twitter search app by using SwiftUI and Combine framework
 
 ## Set up
 
