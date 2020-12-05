@@ -35,11 +35,13 @@ class SearchStatusesViewModel: ObservableObject {
         
         searchWithQuery
             .map { _ in true }
+            .receive(on: RunLoop.main)
             .assign(to: \.shouldShowLoading, on: self)
             .store(in: &disposables)
 
         $query
             .map { !$0.isEmpty }
+            .receive(on: RunLoop.main)
             .assign(to: \.isEditing, on: self)
             .store(in: &disposables)
     }
